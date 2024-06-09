@@ -1,0 +1,398 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+  font-family: "Roboto Slab", serif;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #2f3640;
+  height: 150vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  width: 350px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, 5px 5px 15px 5px rgba(255,255,255,0), 5px 5px 15px 5px rgba(255,255,255,0); 
+  box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, 5px 5px 15px 5px rgba(255,255,255,0), 5px 5px 15px 5px rgba(255,255,255,0);
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 1, 0.1);
+}
+
+.input-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 3px solid #70e6f3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cityInput{
+  flex: 1;
+  height: 30px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+  padding: 10px;
+}
+.search-icon{
+  padding: 10px;
+  height: 30px;
+  background-color: rgb(9, 9, 9);
+  border-left: 1px solid black;
+  cursor: pointer;
+}
+
+.search-icon span{
+  margin-top:20px;
+  font-size: 30px;
+  color: white;
+}
+
+.sun-ico{
+  height: 150px;
+  width: 150px;
+}
+
+.image{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.temp,
+.location,
+.country{
+  margin-top: 5px;
+  font-size: 35px;
+  color: #333;
+  text-transform: uppercase;
+  text-align: center;
+}
+.temp{
+  font-weight: 600;
+}
+.location{
+  color: #ffbc00;
+  font-weight: 400;
+  font-size: 40px;
+}
+.country{
+  font-size: 18px;
+  color: #888;
+  font-weight: 500;
+}
+.cord{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+.cord div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.cord div span{
+  font-size: 14px;
+}
+
+.humidity-percent,
+.wind-percent,
+.cord div span:nth-child(2){
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  padding-top: 5px;
+}
+
+.humidity-ico{
+  height: 70px;
+  width: 70px;
+  border: 1px solid black;
+}
+.wind-ico{
+  height: 70px;
+  width: 70px;
+  border: 1px solid black;
+}
+
+.data-container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.element{
+  text-align: center;
+}
+.text{
+  font-size: 18px;
+  color: #888;
+}
+.copy-right{
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  margin-top: 20px;
+}
+
+p span{
+  color: #858585;
+  font-weight: bolder;
+}
+
+.city-not-found,
+.loading-message,
+.error-message{
+  margin-top: 10px;
+  color: #888;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+  font-family: "Roboto Slab", serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #2f3640;
+  height: 150vh;
+  width: 98vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 350px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, 5px 5px 15px 5px rgba(255,255,255,0), 5px 5px 15px 5px rgba(255,255,255,0);
+  box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, 5px 5px 15px 5px rgba(255,255,255,0), 5px 5px 15px 5px rgba(255,255,255,0);
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 3px solid #70e6f3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cityInput {
+  flex: 1;
+  height: 30px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+  padding: 10px;
+}
+
+.search-icon {
+  padding: 10px;
+  height: 30px;
+  background-color: rgb(9, 9, 9);
+  border-left: 1px solid black;
+  cursor: pointer;
+}
+
+.search-icon span {
+  font-size: 20px;
+  color: white;
+}
+
+.sun-ico {
+  height: 150px;
+  width: 150px;
+}
+
+.image {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.temp,
+.location,
+.country {
+  margin-top: 5px;
+  font-size: 35px;
+  color: #333;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.temp {
+  font-weight: 600;
+}
+
+.location {
+  color: #ffbc00;
+  font-weight: 400;
+  font-size: 40px;
+}
+
+.country {
+  font-size: 18px;
+  color: #888;
+  font-weight: 500;
+}
+
+.cord {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.cord div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.cord div span {
+  font-size: 14px;
+}
+
+.humidity-percent,
+.wind-percent,
+.cord div span:nth-child(2) {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  padding-top: 5px;
+}
+
+.humidity-ico {
+  height: 70px;
+  width: 70px;
+  border: 1px solid black;
+}
+
+.wind-ico {
+  height: 70px;
+  width: 70px;
+  border: 1px solid black;
+}
+
+.data-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.element {
+  text-align: center;
+}
+
+.text {
+  font-size: 18px;
+  color: #888;
+}
+
+.copy-right {
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  margin-top: 20px;
+}
+
+p span {
+  color: #858585;
+  font-weight: bolder;
+}
+
+.city-not-found,
+.loading-message,
+.error-message {
+  margin-top: 10px;
+  color: #888;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  body{
+    height: 200vh;
+    width: 150vw;
+    margin-left: -40px;
+  }
+  .temp,
+  .location,
+  .country {
+    font-size: 30px;
+  }
+
+  .location {
+    font-size: 35px;
+  }
+
+  .cord div span {
+    font-size: 12px;
+  }
+
+  .humidity-percent,
+  .wind-percent,
+  .cord div span:nth-child(2) {
+    font-size: 16px;
+  }
+
+  .humidity-ico,
+  .wind-ico {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .temp,
+  .location,
+  .country {
+    font-size: 25px;
+  }
+
+  .location {
+    font-size: 30px;
+  }
+
+  .cord div span {
+    font-size: 10px;
+  }
+
+  .humidity-percent,
+  .wind-percent,
+  .cord div span:nth-child(2) {
+    font-size: 14px;
+  }
+
+  .humidity-ico,
+  .wind-ico {
+    height: 50px;
+    width: 50px;
+  }
+}
